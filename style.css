@@ -9,8 +9,8 @@
 
 body {
   line-height: 1.6;
-  color: rgb(250, 250, 250);
-  background: linear-gradient(90deg, #0f1531 0%, #b30e40 100%);
+  color: rgb(255, 255, 255);
+  background: linear-gradient(90deg, #df8b2b 0%, #9321f0 100%);
   font-family: "Marck Script", cursive;
   font-weight: 400;
   font-style: normal ;
@@ -19,22 +19,15 @@ body {
 
 /* Заголовок */
 header {
-  /* background: linear-gradient(110deg, #0f1531 0%, #b30e40 100%); */
   padding: 2rem 0;
   text-align: center;
+   -webkit-text-stroke: 0.2px black;
 }
 
 header h1 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   font-weight: 300;
-}
-
-main {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 3fr;
-    
 }
 
 .steakContainer {
@@ -44,8 +37,9 @@ main {
 }
 .steak {
     width: 100%;
-    height: 5%;
-    border: 2px solid rgb(250, 250, 250);
+    height: 3%;
+    background-color:rgb(112, 109, 109);
+    
 }
 /* Навигация по месяцам */
 .month-navigation {
@@ -56,20 +50,8 @@ main {
   margin-top: 1rem;
 }
 
-.nav-btn {
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-}
-
 .nav-btn:hover,
 .nav-btn.active {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
 }
 
@@ -93,6 +75,10 @@ main {
   display: none;
 }
 
+.description {
+  width: 100%;
+  height: 10%;
+}
 .description h2 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
@@ -115,18 +101,45 @@ main {
 /* Сетка фотографий */
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit);
   gap: 1.5rem;
+  margin: auto;
+
 }
 
 /* Элементы фотографий */
 .photo-item {
+  display: flex;
   position: relative;
-  border-radius: 40px 10px;
+  border-radius: 75px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 25px rgba(0,0,0,0.9);
   transition: all 0.3s ease;
   cursor: pointer;
+}
+
+.photo-item img {
+  min-height: 200px;
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 40em;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  border-radius: 55px;
+}
+
+.ass {
+  max-width: 65vw;
+  max-height: 65vh;
+    width: 100%;
+  height: 100%;
+}
+
+.thridItem {
+  display: grid;
+  justify-items: center
 }
 
 .photo-item:hover {
@@ -134,28 +147,28 @@ main {
   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-.photo-item img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
+
 
 .photo-item:hover img {
   transform: scale(1.05);
 }
 
+
+
 /* Информация о фото */
 .photo-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.8));
-  color: white;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
   padding: 2rem 1rem 1rem;
   transform: translateY(100%);
   transition: transform 0.4s ease;
+  
 }
 
 .photo-item:hover .photo-info {
@@ -167,6 +180,7 @@ main {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  
 }
 
 .photo-description {
