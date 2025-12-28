@@ -8,24 +8,25 @@
 
 
 body {
-  line-height: 1.6;
+  line-height: 2;
   color: rgb(255, 255, 255);
   background: linear-gradient(90deg, #df8b2b 0%, #9321f0 100%);
-  font-family: "Marck Script", cursive;
-  font-weight: 400;
-  font-style: normal ;
-  
+  font-family: "Shantell Sans", cursive;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  -webkit-text-stroke: 0.2px green;
 }
 
 /* Заголовок */
 header {
   padding: 2rem 0;
   text-align: center;
-   -webkit-text-stroke: 0.2px black;
+   -webkit-text-stroke: 0.1px green;
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   /* margin-bottom: 1rem; */
   font-weight: 300;
 }
@@ -39,16 +40,10 @@ header h1 {
     width: 100%;
     height: 3%;
     background-color:rgb(112, 109, 109);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
     
 }
 /* Навигация по месяцам */
-.month-navigation {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
 
 .nav-btn:hover,
 .nav-btn.active {
@@ -65,9 +60,9 @@ header h1 {
 /* Секции месяцев */
 .month-section {
   margin-bottom: 3rem;
-  border-radius: 15px;
+  border-radius: 50px;
   padding: 2rem;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
   transition: all 0.3s ease;
 }
 
@@ -80,7 +75,7 @@ header h1 {
   height: 10%;
 }
 .description h2 {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   margin-bottom: 1.5rem;
   text-align: center;
   position: relative;
@@ -101,10 +96,10 @@ header h1 {
 /* Сетка фотографий */
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit);
+  grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
   margin: auto;
-
+  background-color: none;
 }
 
 /* Элементы фотографий */
@@ -116,6 +111,7 @@ header h1 {
   box-shadow: 0 4px 25px rgba(0,0,0,0.9);
   transition: all 0.3s ease;
   cursor: pointer;
+  align-items: center;
 }
 
 .photo-item img {
@@ -125,7 +121,7 @@ header h1 {
   max-height: 40em;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: transform 0.3s ease;
   border-radius: 55px;
 }
@@ -253,6 +249,70 @@ header h1 {
   background: rgba(0,0,0,0.8);
 }
 
+/* Модальное окно при достижении конца страницы */
+.scroll-end-modal {
+  background-color: rgba(0,0,0,0.95);
+}
+
+.scroll-end-content {
+  max-width: 500px;
+  margin: 15% auto;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 0;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.scroll-end-info {
+  padding: 3rem 2rem;
+}
+
+.scroll-end-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.scroll-end-info p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.scroll-end-buttons {
+  margin-top: 2rem;
+}
+
+.restart-btn {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 2px solid rgba(255,255,255,0.3);
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Shantell Sans", cursive;
+  font-weight: 600;
+}
+
+.restart-btn:hover {
+  background: rgba(255,255,255,0.3);
+  border-color: rgba(255,255,255,0.5);
+  transform: translateY(-2px);
+}
+
+.scroll-end-modal .close {
+  color: white;
+  background: rgba(255,255,255,0.2);
+}
+
+.scroll-end-modal .close:hover {
+  background: rgba(255,255,255,0.3);
+}
+
 /* Анимации */
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -299,6 +359,19 @@ header h1 {
     margin: 10% auto;
     max-width: 95%;
   }
+  
+  .scroll-end-content {
+    max-width: 90%;
+    margin: 20% auto;
+  }
+  
+  .scroll-end-info h2 {
+    font-size: 2rem;
+  }
+  
+  .scroll-end-info p {
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -317,5 +390,27 @@ header h1 {
   
   header h1 {
     font-size: 1.8rem;
+  }
+  
+  .scroll-end-content {
+    max-width: 95%;
+    margin: 25% auto;
+  }
+  
+  .scroll-end-info {
+    padding: 2rem 1.5rem;
+  }
+  
+  .scroll-end-info h2 {
+    font-size: 1.8rem;
+  }
+  
+  .scroll-end-info p {
+    font-size: 1rem;
+  }
+  
+  .restart-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 }
