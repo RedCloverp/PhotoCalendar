@@ -1,0 +1,307 @@
+/* Основные стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+
+body {
+  line-height: 1.6;
+  color: rgb(250, 250, 250);
+  background: linear-gradient(90deg, #0f1531 0%, #b30e40 100%);
+  font-family: "Marck Script", cursive;
+  font-weight: 400;
+  font-style: normal ;
+  
+}
+
+/* Заголовок */
+header {
+  /* background: linear-gradient(110deg, #0f1531 0%, #b30e40 100%); */
+  padding: 2rem 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+    
+}
+
+.steakContainer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+}
+.steak {
+    width: 100%;
+    height: 5%;
+    border: 2px solid rgb(250, 250, 250);
+}
+/* Навигация по месяцам */
+.month-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Контейнер галереи */
+.gallery-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Секции месяцев */
+.month-section {
+  margin-bottom: 3rem;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.month-section.hidden {
+  display: none;
+}
+
+.description h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.month-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+/* Сетка фотографий */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Элементы фотографий */
+.photo-item {
+  position: relative;
+  border-radius: 40px 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.photo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.photo-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Информация о фото */
+.photo-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  padding: 2rem 1rem 1rem;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.photo-item:hover .photo-info {
+  transform: translateY(0);
+}
+
+.photo-date {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.photo-description {
+  display: block;
+  font-size: 2rem;
+  opacity: 0.9;
+  
+}
+
+/* Модальное окно */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  position: relative;
+  margin: 5% auto;
+  max-width: 90%;
+  max-height: 90%;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  animation: slideIn 0.3s ease;
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.modal-info {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.modal-info h3 {
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.close:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  .month-navigation {
+    padding: 0 1rem;
+  }
+  
+  .nav-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .photo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .month-section {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .modal-content {
+    margin: 10% auto;
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-btn {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  header {
+    padding: 1.5rem 0;
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+  }
+}
